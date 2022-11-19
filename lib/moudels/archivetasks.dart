@@ -7,7 +7,7 @@ class ArchiveTaskeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('New Tasks',style:TextStyle(
+    return Text('Archive Taske',style:TextStyle(
         fontSize: 25.0,
         fontWeight: FontWeight.bold
     ));
