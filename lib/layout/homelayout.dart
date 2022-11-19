@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
 import 'package:todo_app/moudels/archivetasks.dart';
 import 'package:todo_app/moudels/donetasks.dart';
 import 'package:todo_app/moudels/newtaskscreen.dart';
@@ -24,6 +25,11 @@ class _HomeLayoutState extends State<HomeLayout> {
    'Done Task',
    'ArchiveTaske'
  ];
+ @override
+  void initState() {
+   createDatabase();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,4 +90,32 @@ class _HomeLayoutState extends State<HomeLayout> {
   Future<String> getName()async{
     return 'Ahmed Ali';
   }
+
+  void createDatabase()async{
+   var database=await openDatabase(
+     'todo.db',
+     version: 1,
+     onCreate: (database,version){
+       //id integer
+       //title String
+       //date String
+       //time String
+       //status String
+       print('database created');
+        database.execute(
+          'CREATE TABLE  tasks(id INTEGER PRIMARY KEY,title TEXT,date TEXT,time TEXT,status TEXT) '
+        ).then((value) {
+          print('table created');
+        }).catchError((error){
+          print("error when catch table ${error.toString()}");
+        });
+     },
+     onOpen: (database){
+
+       print('database opened');
+     }
+   );
+  }
+    void InsetToDatabase(){}
+
 }
