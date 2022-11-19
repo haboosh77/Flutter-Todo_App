@@ -32,7 +32,7 @@ class _HomeLayoutState extends State<HomeLayout> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+     return Scaffold(
       appBar: AppBar(
         title:Text( titles[currentIndex]),
       ),
@@ -116,6 +116,7 @@ class _HomeLayoutState extends State<HomeLayout> {
      }
    );
   }
+
     void InsetToDatabase(){}
 
 }
