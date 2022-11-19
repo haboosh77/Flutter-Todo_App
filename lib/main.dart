@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/layout/homelayout.dart';
+import 'package:todo_app/shared/block_observer.dart';
 
 void main() {
+  Bloc.observer = MyBlocObserver();
+
   runApp(myApp());
 
 }
